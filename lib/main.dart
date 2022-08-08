@@ -1,4 +1,4 @@
-import 'package:colocho_store/home.dart';
+//import 'package:colocho_store/home.dart';
 import 'package:colocho_store/login.dart';
 import 'package:flutter/material.dart';
 

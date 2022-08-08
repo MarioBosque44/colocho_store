@@ -1,3 +1,6 @@
+import 'package:colocho_store/column.dart';
+import 'package:colocho_store/home.dart';
+import 'package:colocho_store/row.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/src/foundation/key.dart';
 //import 'package:flutter/src/widgets/framework.dart';
@@ -21,12 +24,11 @@ class _LoginScreenState extends State<LoginScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
+              children: const [
+                SizedBox(
                   width: 270,
                   height: 56,
-                  color: Colors.black12,
-                  child: const TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                       labelText: "Usuario",
                       hintText: 'Enter your email',
@@ -34,12 +36,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 28),
-                Container(
+                SizedBox(height: 28),
+                SizedBox(
                   width: 270,
                   height: 56,
-                  color: Colors.black12,
-                  child: const TextField(
+                  child: TextField(
                     decoration: InputDecoration(
                       labelText: "Contraseña",
                       hintText: 'Enter your password',
@@ -47,8 +48,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 22),
-                const Text(
+                SizedBox(height: 22),
+                Text(
                   "Olvidaste tu contrseña",
                   style: TextStyle(
                       color: Color(0xFF09ADEA),
@@ -59,8 +60,9 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 65),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Otros métodos de autenticación",
                   style: TextStyle(
                     fontSize: 16.0,
@@ -70,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                Container(
+                SizedBox(
                   width: 278.0,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,26 +83,56 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: const ShapeDecoration(
                           color: Color(0xFF1877F2),
                           shape: CircleBorder(),
+                          shadows: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(0, 2),
+                              blurRadius: 3.0,
+                            ),
+                          ],
                         ),
                         child: IconButton(
                           padding: const EdgeInsets.all(10.0),
                           icon: const Icon(Icons.facebook),
                           color: Colors.white,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ColumnScreen(),
+                              ),
+                            );
+                          },
                         ),
                       ),
                       Ink(
                         width: 54.0,
                         height: 54.0,
                         decoration: const ShapeDecoration(
-                          color: Colors.grey,
+                          color: Colors.white,
                           shape: CircleBorder(),
+                          shadows: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(0, 2),
+                              blurRadius: 3.0,
+                            ),
+                          ],
                         ),
                         child: IconButton(
                           padding: const EdgeInsets.all(10.0),
-                          icon: const Icon(Icons.abc),
+                          icon: const Image(
+                              image: AssetImage(
+                                  'assets/images/icons/google_logo.png')),
                           color: Colors.black,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RowScreen(),
+                              ),
+                            );
+                          },
                         ),
                       ),
                       Ink(
@@ -109,6 +141,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: const ShapeDecoration(
                           color: Colors.black,
                           shape: CircleBorder(),
+                          shadows: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(0, 2),
+                              blurRadius: 3.0,
+                            ),
+                          ],
                         ),
                         child: IconButton(
                           padding: const EdgeInsets.all(10.0),
@@ -136,7 +175,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(100.0),
                         ))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Home(),
+                        ),
+                      );
+                    },
                     child: const Text('Iniciar Sesion'),
                   ),
                 ),
